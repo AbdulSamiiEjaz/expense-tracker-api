@@ -23,8 +23,6 @@ class UserController {
         { ...sortingParams }
       );
 
-      console.log(paginationParams, sortingParams);
-
       const filteredUsers = await query.exec();
 
       res.json({

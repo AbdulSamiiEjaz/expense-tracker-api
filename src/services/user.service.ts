@@ -11,6 +11,8 @@ export function findUserById(id: string) {
   return UserModel.findById(id);
 }
 
-export function findUserByEmail(email: string) {
-  return UserModel.findOne({ email });
+export function findUserByEmailOrUsername(identifier: string) {
+  return UserModel.findOne({
+    $or: [{ username: identifier }, { email: identifier }],
+  });
 }
